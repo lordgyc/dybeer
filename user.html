@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverage Management System</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">DY MANAGEMENT</div>
+        <div class="action-buttons">
+            <!-- Order is the active page -->
+            <a  id="sign-out-btn" class="btn-link"><button class="btn btn-primary">sign out</button></a>
+            <div class="profile-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <div class="profile-menu" style="display: none;">
+                    <a href="profile.html">Profile</a>
+                    <a href="settings.html">Settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="content-wrapper">
+                <div class="category-title">BEER</div>
+
+                <div class="options-grid">
+                    <!-- Options will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="waiter-info">
+                <label for="waiter-select">Waiter:</label>
+                <select id="waiter-select">
+                    <!-- Waiters will be dynamically populated -->
+                </select>
+                <div class="balance">balance: 15,000 birr</div>
+            </div>
+
+            <div class="order-summary">
+                <!-- Example order items -->
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span>0 birr</span>
+                </div>
+            </div>
+
+            <div class="sell-btn-container">
+                <button class="sell-btn">sell</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notification-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="modal-message"></span>
+            <button id="close-modal-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="user.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refill Balance - Beverage Management</title>
+    <link rel="stylesheet" href="admin.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">DY MANAGEMENT</div>
+        <div class="action-buttons">
+            <a href="../admin.html" class="btn-link"><button class="btn btn-secondary">Manage</button></a>
+            <a href="assign.html" class="btn-link"><button class="btn btn-secondary">Assign</button></a>
+            <!-- Active page indicated -->
+            <a href="refill.html" class="btn-link"><button class="btn btn-primary">Refill</button></a>
+            <a href="dailycheck.html" class="btn-link"><button class="btn btn-secondary">dailycheck</button></a>
+            <a href="sales.html" class="btn-link"><button class="btn btn-secondary">sales</button></a>
+            <a  id="sign-out-btn" class="btn-link"><button class="btn btn-signout">sign out</button></a>
+            <div class="profile-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content refill-content">
+            <h1>Daily Sales Check</h1>
+            <div>
+                <label for="date-selector">Select Date:</label>
+                <input type="date" id="date-selector" />
+                <label for="waiter-selector">Select Waiter:</label>
+                <select id="waiter-selector">
+                    <option value="">All Waiters</option>
+                    <!-- Options will be dynamically populated -->
+                </select>
+                <button id="fetch-sales-btn" class="btn btn-primary">Fetch Sales</button>
+            </div>
+            <div id="totals" style="margin-top: 20px; font-weight: bold;">
+                Total Quantity: <span id="total-quantity">0</span>, Total Price: <span id="total-price">0.00</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Beer Name</th>
+                        <th>Total Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody id="sales-table-body">
+                    <!-- Rows will be dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('sign-out-btn').addEventListener('click', () => {
+         
+            // Add logic here to sign out the user, e.g., redirect to login page
+            window.location.href = '../login.html';
+        });
+    </script>
+    <script src="dailycheck.js"></script>
+</body>
+</html>

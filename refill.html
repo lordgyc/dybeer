@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refill Balance - Beverage Management</title>
+    <link rel="stylesheet" href="admin.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">DY MANAGEMENT</div>
+        <div class="action-buttons">
+            <a href="../admin.html" class="btn-link"><button class="btn btn-secondary">Manage</button></a>
+            <a href="assign.html" class="btn-link"><button class="btn btn-secondary">Assign</button></a>
+            <!-- Active page indicated -->
+            <a href="refill.html" class="btn-link"><button class="btn btn-primary">Refill</button></a>
+            <a href="dailycheck.html" class="btn-link"><button class="btn btn-secondary">dailycheck</button></a>
+            <a href="sales.html" class="btn-link"><button class="btn btn-secondary">sales</button></a>
+            <a  id="sign-out-btn" class="btn-link"><button class="btn btn-signout">sign out</button></a>
+            <div class="profile-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content refill-content"> <!-- Added specific class -->
+            <div class="refill-form-container">
+                 <h2 class="form-section-title">Refill Waiter Balance</h2>
+                 <form id="refill-form">
+                     <div class="form-group">
+                         <label for="waiter-select">Select Waiter:</label>
+                         <select id="waiter-select" name="waiter" required>
+                             <option value="" disabled selected>-- Choose Waiter --</option>
+                             <!-- Add waiter options dynamically in a real application -->
+                         </select>
+                     </div>
+                     <div class="form-group">
+                         <label for="refill-amount">Amount (Birr):</label>
+                         <input type="number" id="refill-amount" name="amount" placeholder="Enter amount to add" required min="0" step="0.01">
+                     </div>
+                     <button type="submit" class="btn btn-primary add-btn refill-btn">Refill Balance</button>
+                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="modal-close" class="close">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('sign-out-btn').addEventListener('click', () => {
+         
+            // Add logic here to sign out the user, e.g., redirect to login page
+            window.location.href = '../login.html';
+        });
+    </script>
+    <script src="refill.js"></script>
+</body>
+</html>

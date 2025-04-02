@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Waiter - Beverage Management</title>
+    <link rel="stylesheet" href="admin.css"> <!-- Link to the SAME external CSS -->
+</head>
+<body>
+    <!-- Re-use the same header -->
+        <!-- === Start: Replace this entire block in index.html === -->
+    <div class="header">
+        <div class="logo">DY MANAGEMENT</div>
+        <div class="action-buttons">
+            <!-- Order is the active page -->
+            <a href="../admin.html" class="btn-link"><button class="btn btn-secondary">Manage</button></a>
+            <a href="assign.html" class="btn-link"><button class="btn btn-secondary">Assign</button></a>
+            <a href="refill.html" class="btn-link"><button class="btn btn-secondary">Refill</button></a>
+            <a href="dailycheck.html" class="btn-link"><button class="btn btn-secondary">dailycheck</button></a>
+            <a href="sales.html" class="btn-link"><button class="btn btn-secondary">sales</button></a>
+            <a  id="sign-out-btn" class="btn-link"><button class="btn btn-signout">sign out</button></a>
+            
+            <div class="profile-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- === End: Replacement block for index.html === -->
+
+    <!-- Main container for the assign page content -->
+    <div class="container assign-page-container">
+        <div class="main-content assign-content">
+            <h1 class="assign-title">Manage Waiters</h1> <!-- Changed title slightly -->
+
+            <!-- NEW: Wrapper for Form and Table -->
+            <div class="form-table-wrapper">
+
+                <!-- Form Column -->
+                <div class="assign-form-column">
+                    <div class="assign-form">
+                        <h2 class="form-section-title">Add New Waiter</h2> <!-- Added sub-heading -->
+                        <div class="form-group">
+                            <label for="waiterName">Waiter Name:</label>
+                            <input type="text" id="waiterName" placeholder="Enter waiter's full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="waiterId">Waiter ID:</label>
+                            <input type="text" id="waiterId" placeholder="Enter unique ID (e.g., W001)">
+                        </div>
+                        <div class="form-group">
+                            <label for="initialBalance">Initial Balance (Birr):</label>
+                            <input type="number" id="initialBalance" placeholder="Enter starting balance" value="0" min="0">
+                        </div>
+                        <button id="addWaiterBtn" class="btn btn-primary add-btn">Add Waiter</button>
+                    </div>
+                </div>
+
+                <!-- Table Column -->
+                <div class="waiter-table-column">
+                    <div class="waiter-table-container">
+                        <h2 class="form-section-title">Assigned Waiters</h2> <!-- Added sub-heading -->
+                        <table class="waiter-table">
+                            <thead>
+                                <tr>
+                                    <th>Waiter Name</th>
+                                    <th>Waiter ID</th>
+                                    <th>Current Balance (Birr)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="waiterTableBody">
+                                <!-- Waiter rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div> <!-- End form-table-wrapper -->
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notification-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="modal-close" class="close">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <!-- Keep the existing script -->
+    <script>
+        document.getElementById('sign-out-btn').addEventListener('click', () => {
+         
+            // Add logic here to sign out the user, e.g., redirect to login page
+            window.location.href = '../login.html';
+        });
+
+    </script>
+    <script src="assign.js"></script>
+</body>
+</html>
