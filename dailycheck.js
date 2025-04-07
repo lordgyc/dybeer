@@ -15,6 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return selectedDate.toISOString(); // Format to 2025-04-02T18:32:37.929Z
     };
 
+    const showNotification = (message, type = 'error') => {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    };
+
     const fetchWaiters = () => {
         fetch('http://localhost:3000/get-waiters')
             .then(response => response.json())
@@ -28,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             })
             .catch(error => {
+                showNotification('Error fetching waiters. Please try again.', 'error');
                 console.error('Error fetching waiters:', error);
             });
     };
@@ -63,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPriceEl.textContent = totalPrice.toFixed(2);
             })
             .catch(error => {
+                showNotification('Error fetching daily sales. Please try again.', 'error');
                 console.error('Error fetching daily sales:', error);
             });
     };

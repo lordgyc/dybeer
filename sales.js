@@ -107,6 +107,13 @@ async function fetchSalesDataForChartsAndTable(startDate, endDate) {
     }
 }
 
+function showNotification(message) {
+    const modal = document.getElementById('notification-modal');
+    const modalMessage = document.getElementById('modal-message');
+    modalMessage.textContent = message;
+    modal.classList.remove('hidden');
+}
+
 // Event listener for the fetch button
 document.getElementById('fetch-sales-btn').addEventListener('click', () => {
     const startDate = document.getElementById('start-date').value;
@@ -115,6 +122,6 @@ document.getElementById('fetch-sales-btn').addEventListener('click', () => {
     if (startDate && endDate) {
         fetchSalesDataForChartsAndTable(startDate, endDate);
     } else {
-        alert('Please select both start and end dates.');
+        showNotification('Please select both start and end dates.');
     }
 });

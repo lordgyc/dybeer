@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refill Balance - Beverage Management</title>
     <link rel="stylesheet" href="admin.css"> <!-- Link to external CSS -->
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-size: 14px;
+        }
+        .notification.success {
+            background-color: #4caf50;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
